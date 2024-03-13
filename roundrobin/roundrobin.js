@@ -24,7 +24,19 @@ function startRoundRobin() {
         processes.push([`P${i}`, arrivalTime, burstTime, remainingTime, completionTime, priority]);
     }
 
-    processes.sort((a, b) => a[1] - b[1]); // sort based on arrival time  index=1
+    processes.sort((a, b) => a[1] - b[1]); // sort based on arrival time, incase of same, check priority
+    
+
+
+    processes.sort((a, b) => {
+        if (a[1] < b[1]) {
+            return -1;
+        } else if (a[1] > b[1]) {
+            return 1;
+        } else {
+            return a[5]-b[5]; //priority incase of same arrival
+        }
+    });
 
     // Call Round Robin simulation logic
     simulateRoundRobin(processes, timeQuantum);
@@ -47,7 +59,6 @@ function updateReadyQueue(queue) {
     `;
 
 }
-
 
 // -----------------------
 
