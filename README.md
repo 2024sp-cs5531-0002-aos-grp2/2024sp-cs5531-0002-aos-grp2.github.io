@@ -10,7 +10,7 @@ Pradeep Boda  - Introduction and FCFS Scheduling Algorithm
 
 Deepak Ayyasamy - SJF and SRTF Scheduling Algorithms
 
-Vishal Dhatrika - Round Robin (No priority/default and priority based) Scheduling Algorithms
+Vishal Dhatrika - Round Robin (Priority based) and Round Robin NP (No Priority/default) Scheduling Algorithms
 
 Hanumantha Rao Jadda - Priority Scheduling Algorithm
 
