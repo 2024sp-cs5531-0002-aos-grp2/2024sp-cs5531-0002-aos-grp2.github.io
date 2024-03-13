@@ -1,0 +1,71 @@
+<!-- sjf.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="sjf.js"></script>
+    <title>SJF Simulation</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>SJF Simulation</h1>
+
+        <!-- Form to capture process details -->
+        <form id="processForm">
+            <label for="processCount">Enter the number of processes:</label>
+            <input type="number" id="processCount" name="processCount" required>
+
+            <div id="processInputs"></div>
+
+            <button type="button" onclick="generateInputs()">Generate Inputs</button>
+            <button type="button" onclick="startSJF()">Simulate SJF</button>
+        </form>
+
+        <!-- Results will be displayed here -->
+        <div id="results"></div>
+    </div>
+
+    <script>
+        // Function to generate input fields based on process count
+        function generateInputs() {
+            const processCount = document.getElementById('processCount').value;
+            const processInputsDiv = document.getElementById('processInputs');
+
+            let inputsHTML = `
+                <table id="processTable">
+                    <thead>
+                        <tr>
+                            <th>Process</th>
+                            <th>Arrival Time</th>
+                            <th>Burst Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            for (let i = 1; i <= processCount; i++) {
+                inputsHTML += `
+                    <tr>
+                        <td>Process P${i}</td>
+                        <td><input type="number" id="arrivalTime${i}" name="arrivalTime${i}" required></td>
+                        <td><input type="number" id="burstTime${i}" name="burstTime${i}" required></td>
+                    </tr>
+                `;
+            }
+
+            inputsHTML += `
+                    </tbody>
+                </table>
+            `;
+
+            processInputsDiv.innerHTML = inputsHTML;
+        }
+    </script>
+</body>
+
+</html>
